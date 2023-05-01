@@ -12,6 +12,7 @@ import java.util.List;
 import com.opencsv.CSVParserBuilder;
 import com.opencsv.CSVReader;
 import com.opencsv.CSVReaderBuilder;
+import com.opencsv.exceptions.CsvException;
 
 import br.edu.utfpr.td.tsi.projeto_delegacia.modelo.BoletimFurtoVeiculo;
 import br.edu.utfpr.td.tsi.projeto_delegacia.modelo.Emplacamento;
@@ -21,7 +22,7 @@ import br.edu.utfpr.td.tsi.projeto_delegacia.modelo.Veiculo;
 
 public class CsvToObjectReader {
 
-    public ArrayList<BoletimFurtoVeiculo> readBoletimFromCSV(String csvFile) throws IOException, ParseException {
+    public ArrayList<BoletimFurtoVeiculo> readBoletimFromCSV(String csvFile) throws IOException, ParseException, CsvException {
 
         ArrayList<BoletimFurtoVeiculo> boletimBoletimFurtoVeiculos = new ArrayList<>();
 
@@ -131,8 +132,8 @@ public class CsvToObjectReader {
         return parte;
     }
 
-    public static void main(String[] args) throws IOException, ParseException {
-        CsvToObjectReader csv = new CsvToObjectReader();
-        csv.readBoletimFromCSV("projeto_delegacia/furtos.csv");
-    }
+    // public static void main(String[] args) throws IOException, ParseException, CsvException {
+    //     CsvToObjectReader csv = new CsvToObjectReader();
+    //     csv.readBoletimFromCSV("projeto_delegacia/furtos.csv");
+    // }
 }

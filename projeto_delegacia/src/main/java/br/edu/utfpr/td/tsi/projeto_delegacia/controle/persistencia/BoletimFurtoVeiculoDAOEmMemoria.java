@@ -7,6 +7,9 @@ import br.edu.utfpr.td.tsi.projeto_delegacia.modelo.Veiculo;
 import java.util.ArrayList;
 import java.util.List;
 
+import org.springframework.stereotype.Repository;
+
+@Repository
 public class BoletimFurtoVeiculoDAOEmMemoria implements IBoletimFurtoVeiculoDAO {
 
     private ArrayList<BoletimFurtoVeiculo> dataBase = new ArrayList<>();
