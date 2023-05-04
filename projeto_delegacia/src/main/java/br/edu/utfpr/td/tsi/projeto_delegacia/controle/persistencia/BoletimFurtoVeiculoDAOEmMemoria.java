@@ -2,17 +2,30 @@ package br.edu.utfpr.td.tsi.projeto_delegacia.controle.persistencia;
 
 import br.edu.utfpr.td.tsi.projeto_delegacia.modelo.BoletimFurtoVeiculo;
 import br.edu.utfpr.td.tsi.projeto_delegacia.modelo.Veiculo;
+
+import java.io.IOException;
+import java.text.ParseException;
 import java.util.ArrayList;
 import java.util.List;
 
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
+
+import com.opencsv.exceptions.CsvException;
 
 @Repository
 public class BoletimFurtoVeiculoDAOEmMemoria implements IBoletimFurtoVeiculoRepository {
 
     private ArrayList<BoletimFurtoVeiculo> dataBase = new ArrayList<>();
-
     
+    @Autowired
+    public BoletimFurtoVeiculoDAOEmMemoria(ICsvToObjectReader csv) {
+        try {
+            dataBase.addAll(csv.CsvBoletinsToObject("projeto_delegacia/furtos.csv"));
+        } catch (IOException | ParseException | CsvException e) {
+            e.printStackTrace();
+        }
+    }
 
     @Override
     public void save(BoletimFurtoVeiculo boletimFurtoVeiculo) {
@@ -55,20 +68,18 @@ public class BoletimFurtoVeiculoDAOEmMemoria implements IBoletimFurtoVeiculoRepo
     @Override
     public List<BoletimFurtoVeiculo> buscarBoletins(IFiltroBoletim filtroBoletim) {
         return dataBase.stream()
-            .filter(boletim ->
-                boletim.getLocalOcorrencia().getCidade().equals(filtroBoletim.getCidade()) ||
-                boletim.getDataOcorrencia().equals(filtroBoletim.getDataOcorrencia()))
-            .toList();
+                .filter(boletim -> boletim.getLocalOcorrencia().getCidade().equals(filtroBoletim.getCidade()) ||
+                        boletim.getDataOcorrencia().equals(filtroBoletim.getDataOcorrencia()))
+                .toList();
     }
 
     @Override
     public List<Veiculo> buscarVeiculos(IFiltroVeiculo filtroVeiculo) {
         return dataBase.stream()
-            .map(BoletimFurtoVeiculo::getVeiculoFurtado)
-            .filter(veiculo ->
-                veiculo.getMarca().equals(filtroVeiculo.getMarca()) ||
-                veiculo.getEmplacamento().getPlaca().equals(filtroVeiculo.getPlaca()))
-            .toList();
+                .map(BoletimFurtoVeiculo::getVeiculoFurtado)
+                .filter(veiculo -> veiculo.getMarca().equals(filtroVeiculo.getMarca()) ||
+                        veiculo.getEmplacamento().getPlaca().equals(filtroVeiculo.getPlaca()))
+                .toList();
     }
-    
+
 }

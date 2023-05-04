@@ -9,6 +9,8 @@ import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
 
+import org.springframework.stereotype.Component;
+
 import com.opencsv.CSVParserBuilder;
 import com.opencsv.CSVReader;
 import com.opencsv.CSVReaderBuilder;
@@ -20,14 +22,18 @@ import br.edu.utfpr.td.tsi.projeto_delegacia.modelo.Endereco;
 import br.edu.utfpr.td.tsi.projeto_delegacia.modelo.Parte;
 import br.edu.utfpr.td.tsi.projeto_delegacia.modelo.Veiculo;
 
-public class CsvToObjectReader {
+@Component
+public class CsvToObjectReader implements ICsvToObjectReader{
 
-    public ArrayList<BoletimFurtoVeiculo> readBoletimFromCSV(String csvFile) throws IOException, ParseException, CsvException {
+    public ArrayList<BoletimFurtoVeiculo> CsvBoletinsToObject(String csvFile)
+            throws IOException, ParseException, CsvException {
 
         ArrayList<BoletimFurtoVeiculo> boletimBoletimFurtoVeiculos = new ArrayList<>();
 
         CSVReader reader = new CSVReaderBuilder(new FileReader(csvFile))
-                .withCSVParser(new CSVParserBuilder().withSeparator('\t').build())
+                .withCSVParser(new CSVParserBuilder()
+                        .withSeparator('\t')
+                        .build())
                 .build();
 
         reader.readNext();
@@ -44,7 +50,6 @@ public class CsvToObjectReader {
             boletim.setVeiculoFurtado(createVeiculoFurto(line[49], line[47], line[48], line[51],
                     createEmplacamento(line[44], line[45], line[46])));
 
-            System.out.println(boletim);
             boletimBoletimFurtoVeiculos.add(boletim);
         }
 
@@ -132,8 +137,9 @@ public class CsvToObjectReader {
         return parte;
     }
 
-    // public static void main(String[] args) throws IOException, ParseException, CsvException {
-    //     CsvToObjectReader csv = new CsvToObjectReader();
-    //     csv.readBoletimFromCSV("projeto_delegacia/furtos.csv");
+    // public static void main(String[] args) throws IOException, ParseException,
+    // CsvException {
+    // CsvToObjectReader csv = new CsvToObjectReader();
+    // csv.readBoletimFromCSV("projeto_delegacia/furtos.csv");
     // }
 }
