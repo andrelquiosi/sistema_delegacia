@@ -8,8 +8,7 @@ import org.springframework.context.annotation.ComponentScan;
 @ComponentScan("br.edu.utfpr.td.tsi.projeto_delegacia")
 public class ProjetoDelegaciaApplication {
 
-	public static void main(String[] args) {
-		SpringApplication.run(ProjetoDelegaciaApplication.class, args);
-	}
-
+  public static void main(String[] args) {
+    SpringApplication.run(ProjetoDelegaciaApplication.class, args);
+  }
 }
