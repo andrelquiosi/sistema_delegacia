@@ -8,13 +8,13 @@ import java.util.List;
 import org.springframework.stereotype.Repository;
 
 @Repository
-public interface IBoletimFurtoVeiculoDAO {
+public interface IBoletimFurtoVeiculoRepository {
 
-    public void adicionarBoletim(BoletimFurtoVeiculo boletimFurtoVeiculo);
+    public void save(BoletimFurtoVeiculo boletimFurtoVeiculo);
 
-    public void alterarBoletim(Long idBoletimFurtoVeiculo, BoletimFurtoVeiculo boletimFurtoVeiculo);
+    public void update(BoletimFurtoVeiculo boletimFurtoVeiculo);
 
-    public void removerBoletim(Long idBoletimFurtoVeiculo);
+    public void deleteById(Long idBoletimFurtoVeiculo);
 
     public BoletimFurtoVeiculo buscarBoletimPorId(Long idBoletimFurtoVeiculo);
 

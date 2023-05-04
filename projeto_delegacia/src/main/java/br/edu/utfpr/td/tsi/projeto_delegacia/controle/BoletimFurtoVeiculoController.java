@@ -11,7 +11,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.ResponseStatus;
 import org.springframework.web.bind.annotation.RestController;
 
-import br.edu.utfpr.td.tsi.projeto_delegacia.controle.persistencia.IBoletimFurtoVeiculoDAO;
+import br.edu.utfpr.td.tsi.projeto_delegacia.controle.persistencia.IBoletimFurtoVeiculoRepository;
 import br.edu.utfpr.td.tsi.projeto_delegacia.modelo.BoletimFurtoVeiculo;
 
 @RestController
@@ -19,20 +19,19 @@ import br.edu.utfpr.td.tsi.projeto_delegacia.modelo.BoletimFurtoVeiculo;
 public class BoletimFurtoVeiculoController {
 
     @Autowired
-    private IBoletimFurtoVeiculoDAO boletimFurtoVeiculoDAO;
+    private IBoletimFurtoVeiculoRepository boletimFurtoVeiculoDAO;
 
     @GetMapping
     public List<BoletimFurtoVeiculo> listar() {
         return boletimFurtoVeiculoDAO.listarTodosBoletins();
     }
 
-    @PostMapping
+    @PostMapping("/")
     @ResponseStatus(HttpStatus.CREATED)
     public BoletimFurtoVeiculo cadastrarBoletim(@RequestBody BoletimFurtoVeiculo boletim) {
 
+        boletimFurtoVeiculoDAO.save(boletim);
         
-        boletimFurtoVeiculoDAO.adicionarBoletim(boletim);
-
         return boletim;
     }
 

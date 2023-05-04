@@ -8,25 +8,27 @@ import java.util.List;
 import org.springframework.stereotype.Repository;
 
 @Repository
-public class BoletimFurtoVeiculoDAOEmMemoria implements IBoletimFurtoVeiculoDAO {
+public class BoletimFurtoVeiculoDAOEmMemoria implements IBoletimFurtoVeiculoRepository {
 
     private ArrayList<BoletimFurtoVeiculo> dataBase = new ArrayList<>();
 
+    
+
     @Override
-    public void adicionarBoletim(BoletimFurtoVeiculo boletimFurtoVeiculo) {
+    public void save(BoletimFurtoVeiculo boletimFurtoVeiculo) {
         dataBase.add(boletimFurtoVeiculo);
     }
 
     @Override
-    public void alterarBoletim(Long idBoletimFurtoVeiculo, BoletimFurtoVeiculo boletimFurtoVeiculo) {
-        BoletimFurtoVeiculo boletim = buscarBoletimPorId(idBoletimFurtoVeiculo);
-        int index = dataBase.indexOf(boletim);
+    public void update(BoletimFurtoVeiculo boletimFurtoVeiculo) {
+        // BoletimFurtoVeiculo boletim = buscarBoletimPorId(idBoletimFurtoVeiculo);
+        // int index = dataBase.indexOf(boletim);
 
-        dataBase.set(index, boletimFurtoVeiculo);
+        // dataBase.set(index, boletimFurtoVeiculo);
     }
 
     @Override
-    public void removerBoletim(Long idBoletimFurtoVeiculo) {
+    public void deleteById(Long idBoletimFurtoVeiculo) {
         BoletimFurtoVeiculo boletim = buscarBoletimPorId(idBoletimFurtoVeiculo);
         dataBase.remove(boletim);
     }
