@@ -1,7 +1,5 @@
 package br.edu.utfpr.td.tsi.projeto_delegacia.controle.persistencia;
 
-import br.edu.utfpr.td.tsi.projeto_delegacia.exceptions.AlreadyExistsException;
-import br.edu.utfpr.td.tsi.projeto_delegacia.exceptions.NotFoundException;
 import br.edu.utfpr.td.tsi.projeto_delegacia.modelo.BoletimFurtoVeiculo;
 import br.edu.utfpr.td.tsi.projeto_delegacia.modelo.Veiculo;
 
@@ -12,15 +10,13 @@ import org.springframework.stereotype.Repository;
 @Repository
 public interface IBoletimFurtoVeiculoDAO {
 
-    public void adicionarBoletim(BoletimFurtoVeiculo boletimFurtoVeiculo) throws AlreadyExistsException;
+    public void adicionarBoletim(BoletimFurtoVeiculo boletimFurtoVeiculo);
 
-    public void alterarBoletim(Long idBoletimFurtoVeiculo, BoletimFurtoVeiculo boletimFurtoVeiculo)
-            throws NotFoundException;
+    public void alterarBoletim(Long idBoletimFurtoVeiculo, BoletimFurtoVeiculo boletimFurtoVeiculo);
 
-    public void removerBoletim(Long idBoletimFurtoVeiculo) throws NotFoundException;
+    public void removerBoletim(Long idBoletimFurtoVeiculo);
 
-    public BoletimFurtoVeiculo buscarBoletimPorId(Long idBoletimFurtoVeiculo)
-            throws NotFoundException;
+    public BoletimFurtoVeiculo buscarBoletimPorId(Long idBoletimFurtoVeiculo);
 
     public List<BoletimFurtoVeiculo> listarTodosBoletins();
 

@@ -1,7 +1,5 @@
 package br.edu.utfpr.td.tsi.projeto_delegacia.controle.persistencia;
 
-import br.edu.utfpr.td.tsi.projeto_delegacia.exceptions.AlreadyExistsException;
-import br.edu.utfpr.td.tsi.projeto_delegacia.exceptions.NotFoundException;
 import br.edu.utfpr.td.tsi.projeto_delegacia.modelo.BoletimFurtoVeiculo;
 import br.edu.utfpr.td.tsi.projeto_delegacia.modelo.Veiculo;
 import java.util.ArrayList;
@@ -15,20 +13,12 @@ public class BoletimFurtoVeiculoDAOEmMemoria implements IBoletimFurtoVeiculoDAO 
     private ArrayList<BoletimFurtoVeiculo> dataBase = new ArrayList<>();
 
     @Override
-    public void adicionarBoletim(BoletimFurtoVeiculo boletimFurtoVeiculo) throws AlreadyExistsException {
-        boolean alreadyExists = dataBase.stream()
-                .anyMatch(b -> b.getIdBoletimFurtoVeiculo() == boletimFurtoVeiculo.getIdBoletimFurtoVeiculo());
-
-        if (alreadyExists) {
-            throw new AlreadyExistsException();
-        }
-
+    public void adicionarBoletim(BoletimFurtoVeiculo boletimFurtoVeiculo) {
         dataBase.add(boletimFurtoVeiculo);
     }
 
     @Override
-    public void alterarBoletim(Long idBoletimFurtoVeiculo, BoletimFurtoVeiculo boletimFurtoVeiculo)
-            throws NotFoundException {
+    public void alterarBoletim(Long idBoletimFurtoVeiculo, BoletimFurtoVeiculo boletimFurtoVeiculo) {
         BoletimFurtoVeiculo boletim = buscarBoletimPorId(idBoletimFurtoVeiculo);
         int index = dataBase.indexOf(boletim);
 
@@ -36,19 +26,18 @@ public class BoletimFurtoVeiculoDAOEmMemoria implements IBoletimFurtoVeiculoDAO 
     }
 
     @Override
-    public void removerBoletim(Long idBoletimFurtoVeiculo) throws NotFoundException {
+    public void removerBoletim(Long idBoletimFurtoVeiculo) {
         BoletimFurtoVeiculo boletim = buscarBoletimPorId(idBoletimFurtoVeiculo);
         dataBase.remove(boletim);
     }
 
     @Override
-    public BoletimFurtoVeiculo buscarBoletimPorId(Long idBoletimFurtoVeiculo)
-            throws NotFoundException {
+    public BoletimFurtoVeiculo buscarBoletimPorId(Long idBoletimFurtoVeiculo) {
 
         return dataBase.stream()
             .filter(boletim -> boletim.getIdBoletimFurtoVeiculo() == idBoletimFurtoVeiculo)
             .findFirst()
-            .orElseThrow(() -> new NotFoundException());
+            .orElse(null);
     }
 
     @Override
