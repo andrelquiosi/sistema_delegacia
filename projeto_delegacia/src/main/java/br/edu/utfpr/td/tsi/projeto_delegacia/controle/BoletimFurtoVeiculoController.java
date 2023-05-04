@@ -26,6 +26,7 @@ public class BoletimFurtoVeiculoController {
         return boletimFurtoVeiculoDAO.listarTodosBoletins();
     }
 
+    
     @PostMapping
     @ResponseStatus(HttpStatus.CREATED)
     public BoletimFurtoVeiculo cadastrarBoletim(@RequestBody BoletimFurtoVeiculo boletim) {
