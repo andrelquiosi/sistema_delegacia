@@ -1,4 +1,4 @@
-package br.edu.utfpr.td.tsi.projeto_delegacia;
+package br.edu.utfpr.td.tsi.projeto_delegacia.config;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
