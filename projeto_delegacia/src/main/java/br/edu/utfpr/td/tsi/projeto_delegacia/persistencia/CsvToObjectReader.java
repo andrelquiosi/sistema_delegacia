@@ -1,4 +1,4 @@
-package br.edu.utfpr.td.tsi.projeto_delegacia.controle.persistencia;
+package br.edu.utfpr.td.tsi.projeto_delegacia.persistencia;
 
 import java.io.FileReader;
 import java.io.IOException;
@@ -42,7 +42,7 @@ public class CsvToObjectReader implements ICsvToObjectReader{
         for (String[] line : lines) {
             BoletimFurtoVeiculo boletim = new BoletimFurtoVeiculo();
 
-            boletim.setIdBoletimFurtoVeiculo(Long.parseLong(line[1]));
+            boletim.setIdBoletimFurtoVeiculo(line[1]);
             boletim.setDataOcorrencia(dateFormated(line[5] + " " + line[6]));
             boletim.setPeriodoOcorrencia(line[7]);
             boletim.setParte(createParte(null, null, null, line[29]));

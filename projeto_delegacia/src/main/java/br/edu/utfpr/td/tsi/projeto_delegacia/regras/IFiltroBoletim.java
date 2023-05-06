@@ -1,4 +1,4 @@
-package br.edu.utfpr.td.tsi.projeto_delegacia.controle.persistencia;
+package br.edu.utfpr.td.tsi.projeto_delegacia.regras;
 
 import java.util.Date;
 

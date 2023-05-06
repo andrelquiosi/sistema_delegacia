@@ -1,7 +1,9 @@
-package br.edu.utfpr.td.tsi.projeto_delegacia.controle.persistencia;
+package br.edu.utfpr.td.tsi.projeto_delegacia.persistencia;
 
 import br.edu.utfpr.td.tsi.projeto_delegacia.modelo.BoletimFurtoVeiculo;
 import br.edu.utfpr.td.tsi.projeto_delegacia.modelo.Veiculo;
+import br.edu.utfpr.td.tsi.projeto_delegacia.regras.IFiltroBoletim;
+import br.edu.utfpr.td.tsi.projeto_delegacia.regras.IFiltroVeiculo;
 
 import java.io.IOException;
 import java.text.ParseException;
@@ -22,8 +24,10 @@ public class BoletimFurtoVeiculoDAOEmMemoria implements IBoletimFurtoVeiculoRepo
     public BoletimFurtoVeiculoDAOEmMemoria(ICsvToObjectReader csv) {
         try {
             dataBase.addAll(csv.CsvBoletinsToObject("projeto_delegacia/furtos.csv"));
+            System.out.println("Banco de dados CSV carregado");
         } catch (IOException | ParseException | CsvException e) {
             e.printStackTrace();
+            System.out.println("Fala ao carregar banco de dados CSV");
         }
     }
 
@@ -33,7 +37,7 @@ public class BoletimFurtoVeiculoDAOEmMemoria implements IBoletimFurtoVeiculoRepo
     }
 
     @Override
-    public void update(BoletimFurtoVeiculo boletimFurtoVeiculo) {
+    public void update(String idBoletimFurtoVeiculo) {
         // BoletimFurtoVeiculo boletim = buscarBoletimPorId(idBoletimFurtoVeiculo);
         // int index = dataBase.indexOf(boletim);
 
@@ -41,16 +45,16 @@ public class BoletimFurtoVeiculoDAOEmMemoria implements IBoletimFurtoVeiculoRepo
     }
 
     @Override
-    public void deleteById(Long idBoletimFurtoVeiculo) {
+    public void deleteById(String idBoletimFurtoVeiculo) {
         BoletimFurtoVeiculo boletim = buscarBoletimPorId(idBoletimFurtoVeiculo);
         dataBase.remove(boletim);
     }
 
     @Override
-    public BoletimFurtoVeiculo buscarBoletimPorId(Long idBoletimFurtoVeiculo) {
+    public BoletimFurtoVeiculo buscarBoletimPorId(String idBoletimFurtoVeiculo) {
 
         return dataBase.stream()
-            .filter(boletim -> boletim.getIdBoletimFurtoVeiculo() == idBoletimFurtoVeiculo)
+            .filter(boletim -> boletim.getIdBoletimFurtoVeiculo().equals(idBoletimFurtoVeiculo))
             .findFirst()
             .orElse(null);
     }

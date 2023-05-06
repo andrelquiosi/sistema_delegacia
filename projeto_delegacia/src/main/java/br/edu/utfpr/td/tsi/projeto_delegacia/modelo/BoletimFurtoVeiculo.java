@@ -13,7 +13,7 @@ import lombok.NonNull;
 public class BoletimFurtoVeiculo {
 
     @NonNull
-    private Long idBoletimFurtoVeiculo;
+    private String idBoletimFurtoVeiculo;
 
     private Date dataOcorrencia;
     private String periodoOcorrencia;
