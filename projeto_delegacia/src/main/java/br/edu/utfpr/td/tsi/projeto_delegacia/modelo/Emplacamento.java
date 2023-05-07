@@ -1,13 +1,14 @@
 package br.edu.utfpr.td.tsi.projeto_delegacia.modelo;
 
+import lombok.AllArgsConstructor;
 import lombok.Data;
+import lombok.NoArgsConstructor;
 
 @Data
+@NoArgsConstructor
+@AllArgsConstructor
 public class Emplacamento {
-
     private String placa;
     private String estado;
     private String cidade;
-
-
 }

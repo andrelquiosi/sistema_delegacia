@@ -1,14 +1,24 @@
 package br.edu.utfpr.td.tsi.projeto_delegacia.modelo;
 
+import lombok.AllArgsConstructor;
 import lombok.Data;
+import lombok.NoArgsConstructor;
+import lombok.NonNull;
+import lombok.RequiredArgsConstructor;
 
 @Data
+@NoArgsConstructor
+@RequiredArgsConstructor
+@AllArgsConstructor
 public class Veiculo {
 
-    private int anoFabricacao;
+    @NonNull
+    private String idVeiculo;
+
+    private Integer anoFabricacao;
     private String cor;
     private String marca;
-    private String tipoVeiculo;
+    private TipoVeiculo tipoVeiculo;
     private Emplacamento emplacamento;
 
 }

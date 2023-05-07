@@ -16,7 +16,7 @@ public class BoletimFurtoVeiculo {
     private String idBoletimFurtoVeiculo;
 
     private Date dataOcorrencia;
-    private String periodoOcorrencia;
+    private PeriodoOcorrencia periodoOcorrencia;
     private Parte parte;
     private Endereco localOcorrencia;
     private Veiculo veiculoFurtado;

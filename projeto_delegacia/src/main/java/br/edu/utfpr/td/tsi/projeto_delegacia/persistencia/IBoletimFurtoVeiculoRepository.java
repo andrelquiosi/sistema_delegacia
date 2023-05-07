@@ -1,31 +1,12 @@
 package br.edu.utfpr.td.tsi.projeto_delegacia.persistencia;
 
 import br.edu.utfpr.td.tsi.projeto_delegacia.modelo.BoletimFurtoVeiculo;
-import br.edu.utfpr.td.tsi.projeto_delegacia.modelo.Veiculo;
-import br.edu.utfpr.td.tsi.projeto_delegacia.regras.IFiltroBoletim;
-import br.edu.utfpr.td.tsi.projeto_delegacia.regras.IFiltroVeiculo;
+import br.edu.utfpr.td.tsi.projeto_delegacia.regras.IBoletimFilter;
 
 import java.util.List;
 
-import org.springframework.stereotype.Repository;
+public interface IBoletimFurtoVeiculoRepository extends IBaseRepository<BoletimFurtoVeiculo, String> {
 
-@Repository
-public interface IBoletimFurtoVeiculoRepository {
-
-    public void save(BoletimFurtoVeiculo boletimFurtoVeiculo);
-
-    public void update(String idBoletimFurtoVeiculo);
-
-    public void deleteById(String idBoletimFurtoVeiculo);
-
-    public BoletimFurtoVeiculo buscarBoletimPorId(String idBoletimFurtoVeiculo);
-
-    public List<BoletimFurtoVeiculo> listarTodosBoletins();
-
-    public List<Veiculo> listarTodosVeiculos();
-
-    public List<BoletimFurtoVeiculo> buscarBoletins(IFiltroBoletim filtroBoletim);
-
-    public List<Veiculo> buscarVeiculos(IFiltroVeiculo filtroVeiculo);
+    public List<BoletimFurtoVeiculo> findAll(IBoletimFilter boletimFilter);
 
 }
