@@ -2,8 +2,8 @@ package br.edu.utfpr.td.tsi.projeto_delegacia.persistencia;
 
 import br.edu.utfpr.td.tsi.projeto_delegacia.modelo.BoletimFurtoVeiculo;
 import br.edu.utfpr.td.tsi.projeto_delegacia.regras.IBoletimFilter;
+import br.edu.utfpr.td.tsi.projeto_delegacia.utils.FilterUtils;
 
-import java.util.ArrayList;
 import java.util.List;
 import java.util.UUID;
 
@@ -13,8 +13,6 @@ import org.springframework.stereotype.Repository;
 public class InMemoryBoletimFurtoVeiculoRepository
         extends InMemoryRepository<BoletimFurtoVeiculo, String>
         implements IBoletimFurtoVeiculoRepository {
-
-    private List<BoletimFurtoVeiculo> dataBase = new ArrayList<>();
 
     @Override
     public String generateId() {
@@ -33,7 +31,7 @@ public class InMemoryBoletimFurtoVeiculoRepository
 
     @Override
     public List<BoletimFurtoVeiculo> findAll(IBoletimFilter filter) {
-        return dataBase.stream()
+        return getDataBase().stream()
             .filter(boletim -> this.matchesFilter(boletim, filter))
             .toList();
     }
@@ -41,14 +39,16 @@ public class InMemoryBoletimFurtoVeiculoRepository
     private boolean matchesCidade(BoletimFurtoVeiculo boletim, IBoletimFilter filter) {
         return (
             filter.getCidade() != null &&
-            boletim.getLocalOcorrencia().getCidade().equals(filter.getCidade())
+            FilterUtils.compare(boletim.getLocalOcorrencia().getCidade(), filter.getCidade())
         );
     }
 
     private boolean matchesPeriodoOcorrencia(BoletimFurtoVeiculo boletim, IBoletimFilter filter) {
         return (
             filter.getPeriodoOcorrencia() != null &&
-            boletim.getPeriodoOcorrencia().equals(filter.getPeriodoOcorrencia())
+            FilterUtils.compare(
+                boletim.getPeriodoOcorrencia().getDescription(),
+                filter.getPeriodoOcorrencia().getDescription())
         );
     }
 
