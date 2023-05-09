@@ -7,7 +7,6 @@ import org.springframework.stereotype.Service;
 
 import br.edu.utfpr.td.tsi.projeto_delegacia.modelo.BoletimFurtoVeiculo;
 import br.edu.utfpr.td.tsi.projeto_delegacia.persistencia.IBoletimFurtoVeiculoRepository;
-import br.edu.utfpr.td.tsi.projeto_delegacia.persistencia.IVeiculoRepository;
 
 @Service
 public class BoletimFurtoVeiculoServiceImpl implements IBoletimFurtoVeiculoService {
@@ -15,11 +14,13 @@ public class BoletimFurtoVeiculoServiceImpl implements IBoletimFurtoVeiculoServi
     @Autowired
     private IBoletimFurtoVeiculoRepository boletimFurtoVeiculoRepository;
     @Autowired
-    private IVeiculoRepository veiculoRepository;
+    private IVeiculoService veiculoService;
 
     @Override
     public BoletimFurtoVeiculo createBoletim(BoletimFurtoVeiculo boletimFurtoVeiculo) {
-        veiculoRepository.save(boletimFurtoVeiculo.getVeiculoFurtado());
+
+        veiculoService.createVeiculo(boletimFurtoVeiculo.getVeiculoFurtado());
+
         return boletimFurtoVeiculoRepository.save(boletimFurtoVeiculo);
     }
 

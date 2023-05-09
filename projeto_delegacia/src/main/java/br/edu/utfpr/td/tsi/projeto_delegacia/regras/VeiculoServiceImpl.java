@@ -23,5 +23,10 @@ public class VeiculoServiceImpl implements IVeiculoService {
     public List<Veiculo> listVeiculos(IVeiculoFilter filter) {
         return veiculoRepository.findAll(filter);
     }
+
+    @Override
+    public Veiculo createVeiculo(Veiculo veiculo) {
+        return veiculoRepository.save(veiculo);
+    }
     
 }

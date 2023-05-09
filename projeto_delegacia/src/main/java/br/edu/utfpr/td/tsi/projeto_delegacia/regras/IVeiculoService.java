@@ -10,4 +10,6 @@ public interface IVeiculoService {
 
     public List<Veiculo> listVeiculos(IVeiculoFilter filter);
 
+    public Veiculo createVeiculo(Veiculo veiculo);
+
 }
