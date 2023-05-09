@@ -1,7 +1,7 @@
-package br.edu.utfpr.td.tsi.projeto_delegacia.persistencia;
+package br.edu.utfpr.td.tsi.projeto_delegacia.repository;
 
-import br.edu.utfpr.td.tsi.projeto_delegacia.modelo.BoletimFurtoVeiculo;
-import br.edu.utfpr.td.tsi.projeto_delegacia.regras.IBoletimFilter;
+import br.edu.utfpr.td.tsi.projeto_delegacia.model.BoletimFurtoVeiculo;
+import br.edu.utfpr.td.tsi.projeto_delegacia.services.IBoletimFilter;
 
 import java.util.List;
 

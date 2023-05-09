@@ -1,12 +1,12 @@
-package br.edu.utfpr.td.tsi.projeto_delegacia.regras;
+package br.edu.utfpr.td.tsi.projeto_delegacia.services;
 
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
-import br.edu.utfpr.td.tsi.projeto_delegacia.modelo.Veiculo;
-import br.edu.utfpr.td.tsi.projeto_delegacia.persistencia.IVeiculoRepository;
+import br.edu.utfpr.td.tsi.projeto_delegacia.model.Veiculo;
+import br.edu.utfpr.td.tsi.projeto_delegacia.repository.IVeiculoRepository;
 
 @Service
 public class VeiculoServiceImpl implements IVeiculoService {

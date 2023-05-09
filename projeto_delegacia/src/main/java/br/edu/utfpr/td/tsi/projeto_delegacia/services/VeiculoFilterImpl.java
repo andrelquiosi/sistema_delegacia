@@ -1,6 +1,6 @@
-package br.edu.utfpr.td.tsi.projeto_delegacia.regras;
+package br.edu.utfpr.td.tsi.projeto_delegacia.services;
 
-import br.edu.utfpr.td.tsi.projeto_delegacia.modelo.TipoVeiculo;
+import br.edu.utfpr.td.tsi.projeto_delegacia.model.TipoVeiculo;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;

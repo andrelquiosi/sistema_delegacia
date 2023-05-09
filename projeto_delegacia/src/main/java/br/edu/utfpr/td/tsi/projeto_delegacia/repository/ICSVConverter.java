@@ -1,4 +1,4 @@
-package br.edu.utfpr.td.tsi.projeto_delegacia.persistencia;
+package br.edu.utfpr.td.tsi.projeto_delegacia.repository;
 
 import java.io.IOException;
 import java.text.ParseException;

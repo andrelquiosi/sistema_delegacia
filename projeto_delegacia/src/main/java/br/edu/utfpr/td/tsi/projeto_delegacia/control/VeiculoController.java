@@ -1,4 +1,4 @@
-package br.edu.utfpr.td.tsi.projeto_delegacia.controle;
+package br.edu.utfpr.td.tsi.projeto_delegacia.control;
 
 import java.util.List;
 
@@ -8,11 +8,11 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
-import br.edu.utfpr.td.tsi.projeto_delegacia.modelo.TipoVeiculo;
-import br.edu.utfpr.td.tsi.projeto_delegacia.modelo.Veiculo;
-import br.edu.utfpr.td.tsi.projeto_delegacia.regras.IVeiculoFilter;
-import br.edu.utfpr.td.tsi.projeto_delegacia.regras.IVeiculoService;
-import br.edu.utfpr.td.tsi.projeto_delegacia.regras.VeiculoFilterImpl;
+import br.edu.utfpr.td.tsi.projeto_delegacia.model.TipoVeiculo;
+import br.edu.utfpr.td.tsi.projeto_delegacia.model.Veiculo;
+import br.edu.utfpr.td.tsi.projeto_delegacia.services.IVeiculoFilter;
+import br.edu.utfpr.td.tsi.projeto_delegacia.services.IVeiculoService;
+import br.edu.utfpr.td.tsi.projeto_delegacia.services.VeiculoFilterImpl;
 
 @RestController
 @RequestMapping("/veiculos")

@@ -1,4 +1,4 @@
-package br.edu.utfpr.td.tsi.projeto_delegacia.controle;
+package br.edu.utfpr.td.tsi.projeto_delegacia.control;
 
 import java.util.List;
 
@@ -15,11 +15,11 @@ import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseStatus;
 import org.springframework.web.bind.annotation.RestController;
 
-import br.edu.utfpr.td.tsi.projeto_delegacia.modelo.BoletimFurtoVeiculo;
-import br.edu.utfpr.td.tsi.projeto_delegacia.modelo.PeriodoOcorrencia;
-import br.edu.utfpr.td.tsi.projeto_delegacia.regras.BoletimFilterImpl;
-import br.edu.utfpr.td.tsi.projeto_delegacia.regras.IBoletimFilter;
-import br.edu.utfpr.td.tsi.projeto_delegacia.regras.IBoletimFurtoVeiculoService;
+import br.edu.utfpr.td.tsi.projeto_delegacia.model.BoletimFurtoVeiculo;
+import br.edu.utfpr.td.tsi.projeto_delegacia.model.PeriodoOcorrencia;
+import br.edu.utfpr.td.tsi.projeto_delegacia.services.BoletimFilterImpl;
+import br.edu.utfpr.td.tsi.projeto_delegacia.services.IBoletimFilter;
+import br.edu.utfpr.td.tsi.projeto_delegacia.services.IBoletimFurtoVeiculoService;
 
 @RestController
 @RequestMapping("/boletins")
