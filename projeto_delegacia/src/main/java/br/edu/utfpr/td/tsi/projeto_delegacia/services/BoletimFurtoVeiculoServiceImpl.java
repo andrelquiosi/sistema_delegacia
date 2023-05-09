@@ -1,4 +1,4 @@
-package br.edu.utfpr.td.tsi.projeto_delegacia.rules;
+package br.edu.utfpr.td.tsi.projeto_delegacia.services;
 
 import java.util.List;
 
