@@ -1,4 +1,4 @@
-package br.edu.utfpr.td.tsi.projeto_delegacia.modelo;
+package br.edu.utfpr.td.tsi.projeto_delegacia.model;
 
 import lombok.AllArgsConstructor;
 import lombok.Data;

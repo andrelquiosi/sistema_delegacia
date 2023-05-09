@@ -1,12 +1,12 @@
-package br.edu.utfpr.td.tsi.projeto_delegacia.persistencia;
+package br.edu.utfpr.td.tsi.projeto_delegacia.repository;
 
 import java.util.List;
 import java.util.UUID;
 
 import org.springframework.stereotype.Repository;
 
-import br.edu.utfpr.td.tsi.projeto_delegacia.modelo.Veiculo;
-import br.edu.utfpr.td.tsi.projeto_delegacia.regras.IVeiculoFilter;
+import br.edu.utfpr.td.tsi.projeto_delegacia.model.Veiculo;
+import br.edu.utfpr.td.tsi.projeto_delegacia.rules.IVeiculoFilter;
 import br.edu.utfpr.td.tsi.projeto_delegacia.utils.FilterUtils;
 
 @Repository

@@ -1,8 +1,8 @@
-package br.edu.utfpr.td.tsi.projeto_delegacia.regras;
+package br.edu.utfpr.td.tsi.projeto_delegacia.rules;
 
 import java.util.List;
 
-import br.edu.utfpr.td.tsi.projeto_delegacia.modelo.BoletimFurtoVeiculo;
+import br.edu.utfpr.td.tsi.projeto_delegacia.model.BoletimFurtoVeiculo;
 
 public interface IBoletimFurtoVeiculoService {
 

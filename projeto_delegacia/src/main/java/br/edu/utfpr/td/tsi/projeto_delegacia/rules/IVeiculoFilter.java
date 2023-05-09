@@ -1,6 +1,6 @@
-package br.edu.utfpr.td.tsi.projeto_delegacia.regras;
+package br.edu.utfpr.td.tsi.projeto_delegacia.rules;
 
-import br.edu.utfpr.td.tsi.projeto_delegacia.modelo.TipoVeiculo;
+import br.edu.utfpr.td.tsi.projeto_delegacia.model.TipoVeiculo;
 
 public interface IVeiculoFilter {
     public String getPlaca();

@@ -1,4 +1,4 @@
-package br.edu.utfpr.td.tsi.projeto_delegacia.persistencia;
+package br.edu.utfpr.td.tsi.projeto_delegacia.repository;
 
 import java.util.ArrayList;
 import java.util.Collections;

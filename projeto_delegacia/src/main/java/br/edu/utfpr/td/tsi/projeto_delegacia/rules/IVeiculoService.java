@@ -1,8 +1,8 @@
-package br.edu.utfpr.td.tsi.projeto_delegacia.regras;
+package br.edu.utfpr.td.tsi.projeto_delegacia.rules;
 
 import java.util.List;
 
-import br.edu.utfpr.td.tsi.projeto_delegacia.modelo.Veiculo;
+import br.edu.utfpr.td.tsi.projeto_delegacia.model.Veiculo;
 
 public interface IVeiculoService {
     
