@@ -4,10 +4,10 @@ import org.springframework.http.HttpStatus;
 import org.springframework.web.bind.annotation.ResponseStatus;
 
 @ResponseStatus(value = HttpStatus.BAD_REQUEST)
-public class DataOcorrenciaException extends RuntimeException {
-    public DataOcorrenciaException() {
+public class PeriodoOcorrenciaExeption extends RuntimeException {
+    public PeriodoOcorrenciaExeption() {
 
-        super(" Data de ocorrência inválida. O formato deve ser Dia/Mês/Ano e não pode estar no futuro ");
-
+        super("O periodo deve ser um dos valores: {NOITE, MADRUGADA, MANHA, INDETERMINADO, TARDE}");
     }
+
 }
