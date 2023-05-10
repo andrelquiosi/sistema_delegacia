@@ -64,5 +64,4 @@ public class BoletimFurtoVeiculoController {
     public void deleteBoletimById(@PathVariable("id") String idBoletimFurtoVeiculo) {
         boletimFurtoVeiculoService.deleteBoletim(idBoletimFurtoVeiculo);
     }
-
 }
