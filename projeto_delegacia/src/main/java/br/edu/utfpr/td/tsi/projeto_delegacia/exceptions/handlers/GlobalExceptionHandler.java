@@ -22,7 +22,7 @@ public class GlobalExceptionHandler {
         BaseErrorResponse baseErrorResponse = new BaseErrorResponse(HttpStatus.INTERNAL_SERVER_ERROR, e.getMessage());
         return buildResponseEntity(baseErrorResponse);
     }
-    
+
     @ExceptionHandler(HttpMessageNotReadableException.class)
     public ResponseEntity<Object> handleHttpMessageNotReadableException(
         HttpMessageNotReadableException e, WebRequest request
