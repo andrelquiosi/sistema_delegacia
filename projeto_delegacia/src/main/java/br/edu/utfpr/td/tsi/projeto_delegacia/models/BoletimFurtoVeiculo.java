@@ -1,6 +1,6 @@
 package br.edu.utfpr.td.tsi.projeto_delegacia.models;
 
-import java.util.Date;
+import java.time.LocalDate;
 
 import lombok.AllArgsConstructor;
 import lombok.Data;
@@ -15,7 +15,7 @@ public class BoletimFurtoVeiculo {
     @NonNull
     private String idBoletimFurtoVeiculo;
 
-    private Date dataOcorrencia;
+    private LocalDate dataOcorrencia;
     private PeriodoOcorrencia periodoOcorrencia;
     private Parte parte;
     private Endereco localOcorrencia;

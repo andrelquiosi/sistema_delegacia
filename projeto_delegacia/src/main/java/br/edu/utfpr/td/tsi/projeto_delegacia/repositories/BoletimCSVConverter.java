@@ -2,11 +2,10 @@ package br.edu.utfpr.td.tsi.projeto_delegacia.repositories;
 
 import java.io.FileReader;
 import java.io.IOException;
-import java.text.DateFormat;
 import java.text.ParseException;
-import java.text.SimpleDateFormat;
+import java.time.LocalDate;
+import java.time.format.DateTimeFormatter;
 import java.util.ArrayList;
-import java.util.Date;
 import java.util.List;
 
 import org.springframework.stereotype.Component;
@@ -65,7 +64,7 @@ public class BoletimCSVConverter implements ICSVConverter<BoletimFurtoVeiculo> {
         BoletimFurtoVeiculo boletim = new BoletimFurtoVeiculo();
 
 
-        Date dataOcorrencia = formatDate(line[5]);
+        LocalDate dataOcorrencia = formatDate(line[5]);
         PeriodoOcorrencia periodoOcorrencia = PeriodoOcorrencia.fromDescription(line[7]);
         Parte parte = createParteFromLine(line);
         Endereco localOcorrencia = createLocalOcorrenciaFromLine(line);
@@ -80,9 +79,9 @@ public class BoletimCSVConverter implements ICSVConverter<BoletimFurtoVeiculo> {
         return boletim;
     }
 
-    private Date formatDate(String data) throws ParseException {
-        DateFormat dateFormat = new SimpleDateFormat("dd/MM/yyyy");
-        Date date = dateFormat.parse(data);
+    private LocalDate formatDate(String data) throws ParseException {
+        DateTimeFormatter dateFormat = DateTimeFormatter.ofPattern("dd/MM/yyyy");
+        LocalDate date = LocalDate.parse(data, dateFormat);
 
         return date;
     }
