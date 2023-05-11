@@ -5,9 +5,8 @@ import org.springframework.web.bind.annotation.ResponseStatus;
 
 @ResponseStatus(value = HttpStatus.BAD_REQUEST)
 public class DataOcorrenciaException extends RuntimeException {
+    
     public DataOcorrenciaException() {
-
-        super(" Data de ocorrência inválida. O formato deve ser Dia/Mês/Ano e não pode estar no futuro ");
-
+        super("Data de ocorrência inválida. O formato deve ser Dia/Mês/Ano e não pode estar no futuro ");
     }
 }

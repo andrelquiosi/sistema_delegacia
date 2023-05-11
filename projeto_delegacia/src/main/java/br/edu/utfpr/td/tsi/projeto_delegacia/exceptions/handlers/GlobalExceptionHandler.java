@@ -7,6 +7,7 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.http.converter.HttpMessageNotReadableException;
 import org.springframework.web.bind.annotation.ControllerAdvice;
 import org.springframework.web.bind.annotation.ExceptionHandler;
+import org.springframework.web.bind.annotation.ResponseStatus;
 import org.springframework.web.context.request.WebRequest;
 
 import com.fasterxml.jackson.databind.exc.InvalidFormatException;
@@ -19,7 +20,16 @@ public class GlobalExceptionHandler {
 
     @ExceptionHandler(Exception.class)
     public ResponseEntity<Object> handleAllExceptions(Exception e, WebRequest request) {
-        BaseErrorResponse baseErrorResponse = new BaseErrorResponse(HttpStatus.INTERNAL_SERVER_ERROR, e.getMessage());
+        String message = e.getMessage();
+        HttpStatus status = HttpStatus.INTERNAL_SERVER_ERROR;
+
+        ResponseStatus responseStatus = e.getClass().getAnnotation(ResponseStatus.class);
+        
+        if (responseStatus != null) {
+            status = responseStatus.value();
+        }
+
+        BaseErrorResponse baseErrorResponse = new BaseErrorResponse(status, message);
         return buildResponseEntity(baseErrorResponse);
     }
 
