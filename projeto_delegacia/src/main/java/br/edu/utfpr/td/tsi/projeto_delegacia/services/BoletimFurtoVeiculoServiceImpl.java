@@ -5,6 +5,7 @@ import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import br.edu.utfpr.td.tsi.projeto_delegacia.exceptions.BoletimNotFoundException;
 import br.edu.utfpr.td.tsi.projeto_delegacia.models.BoletimFurtoVeiculo;
 import br.edu.utfpr.td.tsi.projeto_delegacia.repositories.IBoletimFurtoVeiculoRepository;
 
@@ -32,6 +33,11 @@ public class BoletimFurtoVeiculoServiceImpl implements IBoletimFurtoVeiculoServi
     @Override
     public BoletimFurtoVeiculo updateBoletim(String idBoletimFurtoVeiculo, BoletimFurtoVeiculo boletimFurtoVeiculo) {
         boletimFurtoVeiculo.setIdBoletimFurtoVeiculo(idBoletimFurtoVeiculo);
+
+        if (!boletimFurtoVeiculoRepository.existsById(idBoletimFurtoVeiculo)) {
+            throw new BoletimNotFoundException();
+        }
+
         return boletimFurtoVeiculoRepository.save(boletimFurtoVeiculo);
     }
 

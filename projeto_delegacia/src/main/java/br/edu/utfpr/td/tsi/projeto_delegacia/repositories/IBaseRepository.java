@@ -14,4 +14,6 @@ public interface IBaseRepository<T, ID> {
     public Optional<T> findById(ID id);
 
     public List<T> findAll();
+
+    public boolean existsById(ID id);
 }

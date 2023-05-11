@@ -55,5 +55,4 @@ public class InMemoryBoletimFurtoVeiculoRepository
     private boolean matchesFilter(BoletimFurtoVeiculo boletim, IBoletimFilter filter) {
         return matchesCidade(boletim, filter) || matchesPeriodoOcorrencia(boletim, filter);
     }
-
 }

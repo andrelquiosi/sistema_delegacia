@@ -42,9 +42,15 @@ public abstract class InMemoryRepository<T, ID> implements IBaseRepository<T, ID
 
     @Override
     public Optional<T> findById(ID id) {
+
         return dataBase.stream()
             .filter(entity -> getId(entity).equals(id))
             .findFirst();
+    }
+
+    @Override
+    public boolean existsById(ID id) {
+        return dataBase.stream().anyMatch(entity -> getId(entity).equals(id));
     }
 
     protected List<T> getDataBase() {
