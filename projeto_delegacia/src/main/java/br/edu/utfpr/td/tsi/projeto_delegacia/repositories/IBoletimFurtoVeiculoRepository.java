@@ -1,6 +1,6 @@
-package br.edu.utfpr.td.tsi.projeto_delegacia.repository;
+package br.edu.utfpr.td.tsi.projeto_delegacia.repositories;
 
-import br.edu.utfpr.td.tsi.projeto_delegacia.model.BoletimFurtoVeiculo;
+import br.edu.utfpr.td.tsi.projeto_delegacia.models.BoletimFurtoVeiculo;
 import br.edu.utfpr.td.tsi.projeto_delegacia.services.IBoletimFilter;
 
 import java.util.List;

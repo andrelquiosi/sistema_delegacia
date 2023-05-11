@@ -1,4 +1,4 @@
-package br.edu.utfpr.td.tsi.projeto_delegacia.repository;
+package br.edu.utfpr.td.tsi.projeto_delegacia.repositories;
 
 import java.io.FileReader;
 import java.io.IOException;
@@ -17,13 +17,13 @@ import com.opencsv.CSVReader;
 import com.opencsv.CSVReaderBuilder;
 import com.opencsv.exceptions.CsvException;
 
-import br.edu.utfpr.td.tsi.projeto_delegacia.model.BoletimFurtoVeiculo;
-import br.edu.utfpr.td.tsi.projeto_delegacia.model.Emplacamento;
-import br.edu.utfpr.td.tsi.projeto_delegacia.model.Endereco;
-import br.edu.utfpr.td.tsi.projeto_delegacia.model.Parte;
-import br.edu.utfpr.td.tsi.projeto_delegacia.model.PeriodoOcorrencia;
-import br.edu.utfpr.td.tsi.projeto_delegacia.model.TipoVeiculo;
-import br.edu.utfpr.td.tsi.projeto_delegacia.model.Veiculo;
+import br.edu.utfpr.td.tsi.projeto_delegacia.models.BoletimFurtoVeiculo;
+import br.edu.utfpr.td.tsi.projeto_delegacia.models.Emplacamento;
+import br.edu.utfpr.td.tsi.projeto_delegacia.models.Endereco;
+import br.edu.utfpr.td.tsi.projeto_delegacia.models.Parte;
+import br.edu.utfpr.td.tsi.projeto_delegacia.models.PeriodoOcorrencia;
+import br.edu.utfpr.td.tsi.projeto_delegacia.models.TipoVeiculo;
+import br.edu.utfpr.td.tsi.projeto_delegacia.models.Veiculo;
 
 @Component
 public class BoletimCSVConverter implements ICSVConverter<BoletimFurtoVeiculo> {

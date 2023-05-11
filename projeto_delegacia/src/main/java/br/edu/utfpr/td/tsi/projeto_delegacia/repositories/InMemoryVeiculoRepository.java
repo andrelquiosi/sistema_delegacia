@@ -1,11 +1,11 @@
-package br.edu.utfpr.td.tsi.projeto_delegacia.repository;
+package br.edu.utfpr.td.tsi.projeto_delegacia.repositories;
 
 import java.util.List;
 import java.util.UUID;
 
 import org.springframework.stereotype.Repository;
 
-import br.edu.utfpr.td.tsi.projeto_delegacia.model.Veiculo;
+import br.edu.utfpr.td.tsi.projeto_delegacia.models.Veiculo;
 import br.edu.utfpr.td.tsi.projeto_delegacia.services.IVeiculoFilter;
 import br.edu.utfpr.td.tsi.projeto_delegacia.utils.FilterUtils;
 

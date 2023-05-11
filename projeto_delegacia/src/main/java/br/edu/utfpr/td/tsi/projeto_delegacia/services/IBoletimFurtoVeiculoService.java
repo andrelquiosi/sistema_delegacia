@@ -2,7 +2,7 @@ package br.edu.utfpr.td.tsi.projeto_delegacia.services;
 
 import java.util.List;
 
-import br.edu.utfpr.td.tsi.projeto_delegacia.model.BoletimFurtoVeiculo;
+import br.edu.utfpr.td.tsi.projeto_delegacia.models.BoletimFurtoVeiculo;
 
 public interface IBoletimFurtoVeiculoService {
 

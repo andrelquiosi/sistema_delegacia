@@ -1,4 +1,4 @@
-package br.edu.utfpr.td.tsi.projeto_delegacia.repository;
+package br.edu.utfpr.td.tsi.projeto_delegacia.repositories;
 
 import java.util.List;
 import java.util.Optional;

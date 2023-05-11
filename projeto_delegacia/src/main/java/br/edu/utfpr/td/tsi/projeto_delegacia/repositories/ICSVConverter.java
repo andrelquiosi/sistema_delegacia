@@ -1,4 +1,4 @@
-package br.edu.utfpr.td.tsi.projeto_delegacia.repository;
+package br.edu.utfpr.td.tsi.projeto_delegacia.repositories;
 
 import java.io.IOException;
 import java.text.ParseException;

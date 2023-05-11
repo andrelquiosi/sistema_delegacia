@@ -7,11 +7,11 @@ import org.springframework.boot.ApplicationArguments;
 import org.springframework.boot.ApplicationRunner;
 import org.springframework.stereotype.Component;
 
-import br.edu.utfpr.td.tsi.projeto_delegacia.model.BoletimFurtoVeiculo;
-import br.edu.utfpr.td.tsi.projeto_delegacia.model.Veiculo;
-import br.edu.utfpr.td.tsi.projeto_delegacia.repository.IBoletimFurtoVeiculoRepository;
-import br.edu.utfpr.td.tsi.projeto_delegacia.repository.ICSVConverter;
-import br.edu.utfpr.td.tsi.projeto_delegacia.repository.IVeiculoRepository;
+import br.edu.utfpr.td.tsi.projeto_delegacia.models.BoletimFurtoVeiculo;
+import br.edu.utfpr.td.tsi.projeto_delegacia.models.Veiculo;
+import br.edu.utfpr.td.tsi.projeto_delegacia.repositories.IBoletimFurtoVeiculoRepository;
+import br.edu.utfpr.td.tsi.projeto_delegacia.repositories.ICSVConverter;
+import br.edu.utfpr.td.tsi.projeto_delegacia.repositories.IVeiculoRepository;
 
 @Component
 public class DataInitializer implements ApplicationRunner {

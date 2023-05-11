@@ -1,4 +1,4 @@
-package br.edu.utfpr.td.tsi.projeto_delegacia.control;
+package br.edu.utfpr.td.tsi.projeto_delegacia.controllers;
 
 import java.util.List;
 
@@ -15,8 +15,8 @@ import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseStatus;
 import org.springframework.web.bind.annotation.RestController;
 
-import br.edu.utfpr.td.tsi.projeto_delegacia.model.BoletimFurtoVeiculo;
-import br.edu.utfpr.td.tsi.projeto_delegacia.model.PeriodoOcorrencia;
+import br.edu.utfpr.td.tsi.projeto_delegacia.models.BoletimFurtoVeiculo;
+import br.edu.utfpr.td.tsi.projeto_delegacia.models.PeriodoOcorrencia;
 import br.edu.utfpr.td.tsi.projeto_delegacia.services.BoletimFilterImpl;
 import br.edu.utfpr.td.tsi.projeto_delegacia.services.IBoletimFilter;
 import br.edu.utfpr.td.tsi.projeto_delegacia.services.IBoletimFurtoVeiculoService;

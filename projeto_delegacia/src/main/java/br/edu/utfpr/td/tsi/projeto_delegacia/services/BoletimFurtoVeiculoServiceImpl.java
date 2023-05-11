@@ -5,8 +5,8 @@ import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
-import br.edu.utfpr.td.tsi.projeto_delegacia.model.BoletimFurtoVeiculo;
-import br.edu.utfpr.td.tsi.projeto_delegacia.repository.IBoletimFurtoVeiculoRepository;
+import br.edu.utfpr.td.tsi.projeto_delegacia.models.BoletimFurtoVeiculo;
+import br.edu.utfpr.td.tsi.projeto_delegacia.repositories.IBoletimFurtoVeiculoRepository;
 
 @Service
 public class BoletimFurtoVeiculoServiceImpl implements IBoletimFurtoVeiculoService {
