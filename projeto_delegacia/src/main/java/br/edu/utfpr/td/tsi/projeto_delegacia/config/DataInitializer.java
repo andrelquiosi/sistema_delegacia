@@ -27,7 +27,7 @@ public class DataInitializer implements ApplicationRunner {
 
     @Override
     public void run(ApplicationArguments args) throws Exception {
-        String csvFile = "projeto_delegacia\\furtos.csv";
+        String csvFile = "projeto_delegacia/furtos.csv";
         
         List<BoletimFurtoVeiculo> boletins = boletimCSVConverter.convertFile(csvFile);
         List<Veiculo> veiculos = boletins.stream().map(BoletimFurtoVeiculo::getVeiculoFurtado).toList();
