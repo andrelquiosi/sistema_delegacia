@@ -27,7 +27,9 @@ public class BoletimFurtoVeiculoServiceImpl implements IBoletimFurtoVeiculoServi
 
     @Override
     public BoletimFurtoVeiculo readBoletim(String idBoletimFurtoVeiculo) {
-        return boletimFurtoVeiculoRepository.findById(idBoletimFurtoVeiculo).orElseThrow();
+        return boletimFurtoVeiculoRepository
+            .findById(idBoletimFurtoVeiculo)
+            .orElseThrow(BoletimNotFoundException::new);
     }
 
     @Override
@@ -43,7 +45,11 @@ public class BoletimFurtoVeiculoServiceImpl implements IBoletimFurtoVeiculoServi
 
     @Override
     public void deleteBoletim(String idBoletimFurtoVeiculo) {
-        boletimFurtoVeiculoRepository.deleteById(idBoletimFurtoVeiculo);
+        boolean found = boletimFurtoVeiculoRepository.deleteById(idBoletimFurtoVeiculo);
+
+        if (!found) {
+            throw new BoletimNotFoundException();
+        }
     }
 
     @Override

@@ -31,8 +31,8 @@ public abstract class InMemoryRepository<T, ID> implements IBaseRepository<T, ID
     }
 
     @Override
-    public void deleteById(ID id) {
-        dataBase.removeIf(entity -> getId(entity).equals(id));
+    public boolean deleteById(ID id) {
+        return dataBase.removeIf(entity -> getId(entity).equals(id));
     }
 
     @Override

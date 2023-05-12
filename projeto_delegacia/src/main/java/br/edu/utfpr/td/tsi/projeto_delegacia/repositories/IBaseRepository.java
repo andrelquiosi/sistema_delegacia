@@ -9,7 +9,7 @@ public interface IBaseRepository<T, ID> {
 
     public List<T> saveAll(List<T> entities);
 
-    public void deleteById(ID id);
+    public boolean deleteById(ID id);
 
     public Optional<T> findById(ID id);
 
