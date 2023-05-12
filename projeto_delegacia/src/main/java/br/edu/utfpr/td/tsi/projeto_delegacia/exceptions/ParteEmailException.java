@@ -4,10 +4,10 @@ import org.springframework.http.HttpStatus;
 import org.springframework.web.bind.annotation.ResponseStatus;
 
 @ResponseStatus(value = HttpStatus.BAD_REQUEST)
-public class NomeDaParteExeption extends RuntimeException {
-    
-    public NomeDaParteExeption(){
-        super(" O nome precisa ser informado ");
+public class ParteEmailException extends RuntimeException {
+
+    public ParteEmailException() {
+        super("O e-mail informado não é válido, exemplo: email@exemplo.com.");
     }
     
 }

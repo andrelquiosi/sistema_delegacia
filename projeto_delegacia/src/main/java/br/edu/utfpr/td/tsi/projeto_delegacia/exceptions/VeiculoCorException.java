@@ -4,9 +4,10 @@ import org.springframework.http.HttpStatus;
 import org.springframework.web.bind.annotation.ResponseStatus;
 
 @ResponseStatus(value = HttpStatus.BAD_REQUEST)
-public class VeiculoMarcaExeption extends RuntimeException{
-    public VeiculoMarcaExeption(){
-        super(" Marca do veículo deve ser informada ");
+public class VeiculoCorException extends RuntimeException {
+
+    public VeiculoCorException() {
+        super("A cor do veículo precisa ser informada.");
     }
     
 }

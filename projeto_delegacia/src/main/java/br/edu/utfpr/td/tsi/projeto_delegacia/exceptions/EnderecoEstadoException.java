@@ -4,10 +4,11 @@ import org.springframework.http.HttpStatus;
 import org.springframework.web.bind.annotation.ResponseStatus;
 
 @ResponseStatus(value = HttpStatus.BAD_REQUEST)
-public class EnderecoCidadeExeption extends RuntimeException {
+public class EnderecoEstadoException extends RuntimeException {
 
-    public EnderecoCidadeExeption() {
-        super(" Cidade deve ser informada ");
+    public EnderecoEstadoException() {
+        super("Estado precisa ser informado.");
+
     }
     
 }
