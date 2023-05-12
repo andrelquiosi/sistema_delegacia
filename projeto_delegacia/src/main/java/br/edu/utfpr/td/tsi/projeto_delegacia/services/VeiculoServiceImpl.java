@@ -14,6 +14,9 @@ public class VeiculoServiceImpl implements IVeiculoService {
     @Autowired
     private IVeiculoRepository veiculoRepository;
 
+    @Autowired
+    private IValidator<Veiculo> validator;
+
     @Override
     public List<Veiculo> listVeiculos() {
         return veiculoRepository.findAll();
@@ -26,6 +29,8 @@ public class VeiculoServiceImpl implements IVeiculoService {
 
     @Override
     public Veiculo createVeiculo(Veiculo veiculo) {
+        validator.validate(veiculo);
+        
         return veiculoRepository.save(veiculo);
     }
     
