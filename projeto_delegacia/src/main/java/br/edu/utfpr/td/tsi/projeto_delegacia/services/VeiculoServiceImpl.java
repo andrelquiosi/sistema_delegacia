@@ -5,10 +5,6 @@ import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
-import br.edu.utfpr.td.tsi.projeto_delegacia.exceptions.VeiculoAlreadyExists;
-import br.edu.utfpr.td.tsi.projeto_delegacia.exceptions.VeiculoCorException;
-import br.edu.utfpr.td.tsi.projeto_delegacia.exceptions.VeiculoMarcaException;
-import br.edu.utfpr.td.tsi.projeto_delegacia.exceptions.VeiculoTipoVeiculoException;
 import br.edu.utfpr.td.tsi.projeto_delegacia.models.Veiculo;
 import br.edu.utfpr.td.tsi.projeto_delegacia.repositories.IVeiculoRepository;
 
@@ -17,6 +13,9 @@ public class VeiculoServiceImpl implements IVeiculoService {
 
     @Autowired
     private IVeiculoRepository veiculoRepository;
+
+    @Autowired
+    private IValidator<Veiculo> validator;
 
     @Override
     public List<Veiculo> listVeiculos() {
@@ -30,19 +29,8 @@ public class VeiculoServiceImpl implements IVeiculoService {
 
     @Override
     public Veiculo createVeiculo(Veiculo veiculo) {
-
-        if (veiculoRepository.existsById(veiculo.getIdVeiculo()))
-            throw new VeiculoAlreadyExists();
-
-        if (veiculo.getCor() == null)
-            throw new VeiculoCorException();
-
-        if (veiculo.getMarca() == null)
-            throw new VeiculoMarcaException();
-
-        if (veiculo.getTipoVeiculo() == null)
-            throw new VeiculoTipoVeiculoException();
-
+        validator.validate(veiculo);
+        
         return veiculoRepository.save(veiculo);
     }
     

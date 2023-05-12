@@ -1,0 +1,55 @@
+package br.edu.utfpr.td.tsi.projeto_delegacia.services;
+
+import java.time.LocalDate;
+
+import org.springframework.stereotype.Component;
+
+import br.edu.utfpr.td.tsi.projeto_delegacia.exceptions.DataOcorrenciaException;
+import br.edu.utfpr.td.tsi.projeto_delegacia.exceptions.EnderecoCidadeException;
+import br.edu.utfpr.td.tsi.projeto_delegacia.exceptions.EnderecoEstadoException;
+import br.edu.utfpr.td.tsi.projeto_delegacia.exceptions.NomeDaParteException;
+import br.edu.utfpr.td.tsi.projeto_delegacia.exceptions.ParteEmailException;
+import br.edu.utfpr.td.tsi.projeto_delegacia.exceptions.ParteTelefoneException;
+import br.edu.utfpr.td.tsi.projeto_delegacia.exceptions.PeriodoOcorrenciaException;
+import br.edu.utfpr.td.tsi.projeto_delegacia.exceptions.VeiculoCorException;
+import br.edu.utfpr.td.tsi.projeto_delegacia.exceptions.VeiculoMarcaException;
+import br.edu.utfpr.td.tsi.projeto_delegacia.models.BoletimFurtoVeiculo;
+import br.edu.utfpr.td.tsi.projeto_delegacia.utils.ValidationUtils;
+
+@Component
+public class BoletimValidator implements IValidator<BoletimFurtoVeiculo> {
+
+    @Override
+    public void validate(BoletimFurtoVeiculo boletimFurtoVeiculo) {
+
+        if (boletimFurtoVeiculo.getDataOcorrencia() == null ||
+            boletimFurtoVeiculo.getDataOcorrencia().isAfter(LocalDate.now()))
+            throw new DataOcorrenciaException();
+            
+        if (boletimFurtoVeiculo.getPeriodoOcorrencia() == null)
+            throw new PeriodoOcorrenciaException();
+
+        if (boletimFurtoVeiculo.getParte().getNome() == null)
+            throw new NomeDaParteException();
+
+        if (!ValidationUtils.isEmailValid(boletimFurtoVeiculo.getParte().getEmail()))
+            throw new ParteEmailException();
+
+        if (!ValidationUtils.isPhoneValid(boletimFurtoVeiculo.getParte().getTelefone()))
+            throw new ParteTelefoneException();
+
+        if (boletimFurtoVeiculo.getLocalOcorrencia().getCidade() == null)
+            throw new EnderecoCidadeException();
+
+        if (boletimFurtoVeiculo.getLocalOcorrencia().getEstado() == null)
+            throw new EnderecoEstadoException();
+
+        if (boletimFurtoVeiculo.getVeiculoFurtado().getCor() == null)
+            throw new VeiculoCorException();
+
+        if (boletimFurtoVeiculo.getVeiculoFurtado().getMarca() == null)
+            throw new VeiculoMarcaException();
+
+    }
+    
+}
