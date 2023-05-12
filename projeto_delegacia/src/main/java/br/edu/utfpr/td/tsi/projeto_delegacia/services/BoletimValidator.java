@@ -29,14 +29,22 @@ public class BoletimValidator implements IValidator<BoletimFurtoVeiculo> {
         if (boletimFurtoVeiculo.getPeriodoOcorrencia() == null)
             throw new PeriodoOcorrenciaException();
 
+        if (boletimFurtoVeiculo.getParte() == null)
+            throw new ParteException();
+
         if (boletimFurtoVeiculo.getParte().getNome() == null)
             throw new NomeDaParteException();
 
-        if (!ValidationUtils.isEmailValid(boletimFurtoVeiculo.getParte().getEmail()))
+        if (boletimFurtoVeiculo.getParte().getEmail() != null &&
+            !ValidationUtils.isEmailValid(boletimFurtoVeiculo.getParte().getEmail()))
             throw new ParteEmailException();
 
-        if (!ValidationUtils.isPhoneValid(boletimFurtoVeiculo.getParte().getTelefone()))
+        if (boletimFurtoVeiculo.getParte().getTelefone() != null &&
+            !ValidationUtils.isPhoneValid(boletimFurtoVeiculo.getParte().getTelefone()))
             throw new ParteTelefoneException();
+
+        if (boletimFurtoVeiculo.getLocalOcorrencia() == null)
+            throw new LocalOcorrenciaException();
 
         if (boletimFurtoVeiculo.getLocalOcorrencia().getCidade() == null)
             throw new EnderecoCidadeException();
