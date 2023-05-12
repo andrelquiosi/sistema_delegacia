@@ -7,6 +7,6 @@ import org.springframework.web.bind.annotation.ResponseStatus;
 public class DataOcorrenciaException extends RuntimeException {
     
     public DataOcorrenciaException() {
-        super("Data de ocorrência inválida. O formato deve ser Dia/Mês/Ano e não pode estar no futuro ");
+        super("dataOcorrencia Incorreta. Informe uma data e que não esteja no futuro ");
     }
 }
