@@ -2,11 +2,13 @@ package br.edu.utfpr.td.tsi.projeto_delegacia.config;
 
 import java.util.List;
 
+import org.modelmapper.ModelMapper;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.ApplicationArguments;
 import org.springframework.boot.ApplicationRunner;
 import org.springframework.stereotype.Component;
 
+import br.edu.utfpr.td.tsi.projeto_delegacia.dtos.BoletimFurtoVeiculoDTO;
 import br.edu.utfpr.td.tsi.projeto_delegacia.models.BoletimFurtoVeiculo;
 import br.edu.utfpr.td.tsi.projeto_delegacia.models.Veiculo;
 import br.edu.utfpr.td.tsi.projeto_delegacia.repositories.IBoletimFurtoVeiculoRepository;
@@ -17,11 +19,11 @@ import br.edu.utfpr.td.tsi.projeto_delegacia.repositories.IVeiculoRepository;
 public class DataInitializer implements ApplicationRunner {
     
     @Autowired
-    private ICSVConverter<BoletimFurtoVeiculo> boletimCSVConverter;
-
+    private ICSVConverter<BoletimFurtoVeiculoDTO> boletimCSVConverter;
+    @Autowired
+    private ModelMapper modelMapper;
     @Autowired
     private IBoletimFurtoVeiculoRepository boletimFurtoVeiculoRepository;
-
     @Autowired
     private IVeiculoRepository veiculoRepository;
 
@@ -29,11 +31,16 @@ public class DataInitializer implements ApplicationRunner {
     public void run(ApplicationArguments args) throws Exception {
         String csvFile = "projeto_delegacia/furtos.csv";
         
-        List<BoletimFurtoVeiculo> boletins = boletimCSVConverter.convertFile(csvFile);
-        List<Veiculo> veiculos = boletins.stream().map(BoletimFurtoVeiculo::getVeiculoFurtado).toList();
-        
-        boletimFurtoVeiculoRepository.saveAll(boletins);
-        veiculoRepository.saveAll(veiculos);
+        List<BoletimFurtoVeiculoDTO> boletinsDTO = boletimCSVConverter.convertFile(csvFile);
+
+        boletinsDTO.forEach(boletimDTO -> {
+            Veiculo veiculo = veiculoRepository.save(boletimDTO.getVeiculoFurtado());
+            
+            BoletimFurtoVeiculo boletim = modelMapper.map(boletimDTO, BoletimFurtoVeiculo.class);
+            boletim.setIdVeiculoFurtado(veiculo.getIdVeiculo());
+
+            boletimFurtoVeiculoRepository.save(boletim);
+        });
     }
     
 }

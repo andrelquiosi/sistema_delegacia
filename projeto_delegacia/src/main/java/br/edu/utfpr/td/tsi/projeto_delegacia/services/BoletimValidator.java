@@ -11,8 +11,6 @@ import br.edu.utfpr.td.tsi.projeto_delegacia.exceptions.NomeDaParteException;
 import br.edu.utfpr.td.tsi.projeto_delegacia.exceptions.ParteEmailException;
 import br.edu.utfpr.td.tsi.projeto_delegacia.exceptions.ParteTelefoneException;
 import br.edu.utfpr.td.tsi.projeto_delegacia.exceptions.PeriodoOcorrenciaException;
-import br.edu.utfpr.td.tsi.projeto_delegacia.exceptions.VeiculoCorException;
-import br.edu.utfpr.td.tsi.projeto_delegacia.exceptions.VeiculoMarcaException;
 import br.edu.utfpr.td.tsi.projeto_delegacia.models.BoletimFurtoVeiculo;
 import br.edu.utfpr.td.tsi.projeto_delegacia.utils.ValidationUtils;
 
@@ -51,12 +49,6 @@ public class BoletimValidator implements IValidator<BoletimFurtoVeiculo> {
 
         if (boletimFurtoVeiculo.getLocalOcorrencia().getEstado() == null)
             throw new EnderecoEstadoException();
-
-        if (boletimFurtoVeiculo.getVeiculoFurtado().getCor() == null)
-            throw new VeiculoCorException();
-
-        if (boletimFurtoVeiculo.getVeiculoFurtado().getMarca() == null)
-            throw new VeiculoMarcaException();
 
     }
     

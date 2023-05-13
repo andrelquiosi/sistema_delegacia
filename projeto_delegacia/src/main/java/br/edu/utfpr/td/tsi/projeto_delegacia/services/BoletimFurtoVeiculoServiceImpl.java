@@ -15,21 +15,18 @@ public class BoletimFurtoVeiculoServiceImpl implements IBoletimFurtoVeiculoServi
     @Autowired
     private IBoletimFurtoVeiculoRepository boletimFurtoVeiculoRepository;
     @Autowired
-    private IVeiculoService veiculoService;
-    @Autowired
     private IValidator<BoletimFurtoVeiculo> validator;
 
     @Override
     public BoletimFurtoVeiculo createBoletim(BoletimFurtoVeiculo boletimFurtoVeiculo) {
         validator.validate(boletimFurtoVeiculo);
 
-        veiculoService.createVeiculo(boletimFurtoVeiculo.getVeiculoFurtado());
-
         return boletimFurtoVeiculoRepository.save(boletimFurtoVeiculo);
     }
 
     @Override
     public BoletimFurtoVeiculo readBoletim(String idBoletimFurtoVeiculo) {
+
         return boletimFurtoVeiculoRepository
             .findById(idBoletimFurtoVeiculo)
             .orElseThrow(BoletimNotFoundException::new);

@@ -16,7 +16,7 @@ import com.opencsv.CSVReader;
 import com.opencsv.CSVReaderBuilder;
 import com.opencsv.exceptions.CsvException;
 
-import br.edu.utfpr.td.tsi.projeto_delegacia.models.BoletimFurtoVeiculo;
+import br.edu.utfpr.td.tsi.projeto_delegacia.dtos.BoletimFurtoVeiculoDTO;
 import br.edu.utfpr.td.tsi.projeto_delegacia.models.Emplacamento;
 import br.edu.utfpr.td.tsi.projeto_delegacia.models.Endereco;
 import br.edu.utfpr.td.tsi.projeto_delegacia.models.Parte;
@@ -25,16 +25,16 @@ import br.edu.utfpr.td.tsi.projeto_delegacia.models.TipoVeiculo;
 import br.edu.utfpr.td.tsi.projeto_delegacia.models.Veiculo;
 
 @Component
-public class BoletimCSVConverter implements ICSVConverter<BoletimFurtoVeiculo> {
+public class BoletimCSVConverter implements ICSVConverter<BoletimFurtoVeiculoDTO> {
 
-    public List<BoletimFurtoVeiculo> convertFile(String csvFile) throws IOException, ParseException, CsvException {
+    public List<BoletimFurtoVeiculoDTO> convertFile(String csvFile) throws IOException, ParseException, CsvException {
 
         List<String[]> lines = readFile(csvFile);
 
-        List<BoletimFurtoVeiculo> boletins = new ArrayList<>();
+        List<BoletimFurtoVeiculoDTO> boletins = new ArrayList<>();
 
         for (String[] line : lines) {
-            BoletimFurtoVeiculo boletim = convertLine(line);
+            BoletimFurtoVeiculoDTO boletim = convertLine(line);
             boletins.add(boletim);
         }
 
@@ -60,9 +60,8 @@ public class BoletimCSVConverter implements ICSVConverter<BoletimFurtoVeiculo> {
         return lines;
     }
 
-    private BoletimFurtoVeiculo convertLine(String[] line) throws ParseException {
-        BoletimFurtoVeiculo boletim = new BoletimFurtoVeiculo();
-
+    private BoletimFurtoVeiculoDTO convertLine(String[] line) throws ParseException {
+        BoletimFurtoVeiculoDTO boletim = new BoletimFurtoVeiculoDTO();
 
         LocalDate dataOcorrencia = formatDate(line[5]);
         PeriodoOcorrencia periodoOcorrencia = PeriodoOcorrencia.fromDescription(line[7]);
