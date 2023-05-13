@@ -8,6 +8,8 @@ import org.springframework.stereotype.Service;
 import br.edu.utfpr.td.tsi.projeto_delegacia.exceptions.BoletimNotFoundException;
 import br.edu.utfpr.td.tsi.projeto_delegacia.models.BoletimFurtoVeiculo;
 import br.edu.utfpr.td.tsi.projeto_delegacia.repositories.IBoletimFurtoVeiculoRepository;
+import br.edu.utfpr.td.tsi.projeto_delegacia.utils.IBoletimFilter;
+import br.edu.utfpr.td.tsi.projeto_delegacia.utils.IValidator;
 
 @Service
 public class BoletimFurtoVeiculoServiceImpl implements IBoletimFurtoVeiculoService {

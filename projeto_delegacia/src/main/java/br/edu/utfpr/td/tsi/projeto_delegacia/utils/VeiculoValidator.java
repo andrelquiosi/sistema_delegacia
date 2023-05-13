@@ -1,4 +1,4 @@
-package br.edu.utfpr.td.tsi.projeto_delegacia.services;
+package br.edu.utfpr.td.tsi.projeto_delegacia.utils;
 
 import org.springframework.stereotype.Component;
 
