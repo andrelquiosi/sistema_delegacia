@@ -29,7 +29,8 @@ public class DataInitializer implements ApplicationRunner {
 
     @Override
     public void run(ApplicationArguments args) throws Exception {
-        String csvFile = "projeto_delegacia/furtos.csv";
+        ClassLoader classLoader = getClass().getClassLoader();
+        String csvFile = classLoader.getResource("furtos.csv").getFile();
         
         List<BoletimFurtoVeiculoDTO> boletinsDTO = boletimCSVConverter.convertFile(csvFile);
 
