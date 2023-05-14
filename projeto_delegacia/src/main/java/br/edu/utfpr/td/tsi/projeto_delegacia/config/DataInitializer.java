@@ -1,5 +1,6 @@
 package br.edu.utfpr.td.tsi.projeto_delegacia.config;
 
+import java.io.InputStream;
 import java.util.List;
 
 import org.modelmapper.ModelMapper;
@@ -30,9 +31,9 @@ public class DataInitializer implements ApplicationRunner {
     @Override
     public void run(ApplicationArguments args) throws Exception {
         ClassLoader classLoader = getClass().getClassLoader();
-        String csvFile = classLoader.getResource("furtos.csv").getFile();
+        InputStream csvFileStream = classLoader.getResourceAsStream("furtos.csv");
         
-        List<BoletimFurtoVeiculoDTO> boletinsDTO = boletimCSVConverter.convertFile(csvFile);
+        List<BoletimFurtoVeiculoDTO> boletinsDTO = boletimCSVConverter.convertFileStream(csvFileStream);
 
         boletinsDTO.forEach(boletimDTO -> {
             Veiculo veiculo = veiculoRepository.save(boletimDTO.getVeiculoFurtado());
