@@ -1,4 +1,4 @@
-package br.edu.utfpr.td.tsi.projeto_delegacia.services;
+package br.edu.utfpr.td.tsi.projeto_delegacia.utils;
 
 import java.time.LocalDate;
 
@@ -7,12 +7,13 @@ import org.springframework.stereotype.Component;
 import br.edu.utfpr.td.tsi.projeto_delegacia.exceptions.DataOcorrenciaException;
 import br.edu.utfpr.td.tsi.projeto_delegacia.exceptions.EnderecoCidadeException;
 import br.edu.utfpr.td.tsi.projeto_delegacia.exceptions.EnderecoEstadoException;
+import br.edu.utfpr.td.tsi.projeto_delegacia.exceptions.LocalOcorrenciaException;
 import br.edu.utfpr.td.tsi.projeto_delegacia.exceptions.NomeDaParteException;
 import br.edu.utfpr.td.tsi.projeto_delegacia.exceptions.ParteEmailException;
+import br.edu.utfpr.td.tsi.projeto_delegacia.exceptions.ParteException;
 import br.edu.utfpr.td.tsi.projeto_delegacia.exceptions.ParteTelefoneException;
 import br.edu.utfpr.td.tsi.projeto_delegacia.exceptions.PeriodoOcorrenciaException;
 import br.edu.utfpr.td.tsi.projeto_delegacia.models.BoletimFurtoVeiculo;
-import br.edu.utfpr.td.tsi.projeto_delegacia.utils.ValidationUtils;
 
 @Component
 public class BoletimValidator implements IValidator<BoletimFurtoVeiculo> {

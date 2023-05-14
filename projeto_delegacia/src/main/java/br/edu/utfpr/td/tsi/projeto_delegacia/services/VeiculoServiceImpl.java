@@ -8,6 +8,8 @@ import org.springframework.stereotype.Service;
 import br.edu.utfpr.td.tsi.projeto_delegacia.exceptions.VeiculoNotFoundException;
 import br.edu.utfpr.td.tsi.projeto_delegacia.models.Veiculo;
 import br.edu.utfpr.td.tsi.projeto_delegacia.repositories.IVeiculoRepository;
+import br.edu.utfpr.td.tsi.projeto_delegacia.utils.IValidator;
+import br.edu.utfpr.td.tsi.projeto_delegacia.utils.IVeiculoFilter;
 
 @Service
 public class VeiculoServiceImpl implements IVeiculoService {

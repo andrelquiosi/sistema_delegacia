@@ -10,9 +10,9 @@ import org.springframework.web.bind.annotation.RestController;
 
 import br.edu.utfpr.td.tsi.projeto_delegacia.models.TipoVeiculo;
 import br.edu.utfpr.td.tsi.projeto_delegacia.models.Veiculo;
-import br.edu.utfpr.td.tsi.projeto_delegacia.services.IVeiculoFilter;
 import br.edu.utfpr.td.tsi.projeto_delegacia.services.IVeiculoService;
-import br.edu.utfpr.td.tsi.projeto_delegacia.services.VeiculoFilterImpl;
+import br.edu.utfpr.td.tsi.projeto_delegacia.utils.IVeiculoFilter;
+import br.edu.utfpr.td.tsi.projeto_delegacia.utils.VeiculoFilterImpl;
 
 @RestController
 @RequestMapping("/veiculos")

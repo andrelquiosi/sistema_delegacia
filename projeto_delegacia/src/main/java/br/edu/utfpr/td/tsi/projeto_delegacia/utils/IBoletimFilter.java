@@ -1,4 +1,4 @@
-package br.edu.utfpr.td.tsi.projeto_delegacia.services;
+package br.edu.utfpr.td.tsi.projeto_delegacia.utils;
 
 import br.edu.utfpr.td.tsi.projeto_delegacia.models.PeriodoOcorrencia;
 
