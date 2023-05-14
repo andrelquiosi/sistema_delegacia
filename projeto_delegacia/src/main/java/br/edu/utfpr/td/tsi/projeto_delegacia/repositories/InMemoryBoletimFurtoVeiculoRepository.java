@@ -38,14 +38,16 @@ public class InMemoryBoletimFurtoVeiculoRepository
 
     private boolean matchesCidade(BoletimFurtoVeiculo boletim, IBoletimFilter filter) {
         return (
-            filter.getCidade() != null &&
+            filter.getCidade() == null ||
+            boletim.getLocalOcorrencia() != null &&
             FilterUtils.compare(boletim.getLocalOcorrencia().getCidade(), filter.getCidade())
         );
     }
 
     private boolean matchesPeriodoOcorrencia(BoletimFurtoVeiculo boletim, IBoletimFilter filter) {
         return (
-            filter.getPeriodoOcorrencia() != null &&
+            filter.getPeriodoOcorrencia() == null ||
+            boletim.getPeriodoOcorrencia() != null &&
             FilterUtils.compare(
                 boletim.getPeriodoOcorrencia().getDescription(),
                 filter.getPeriodoOcorrencia().getDescription())
@@ -53,6 +55,6 @@ public class InMemoryBoletimFurtoVeiculoRepository
     }
 
     private boolean matchesFilter(BoletimFurtoVeiculo boletim, IBoletimFilter filter) {
-        return matchesCidade(boletim, filter) || matchesPeriodoOcorrencia(boletim, filter);
+        return matchesCidade(boletim, filter) && matchesPeriodoOcorrencia(boletim, filter);
     }
 }

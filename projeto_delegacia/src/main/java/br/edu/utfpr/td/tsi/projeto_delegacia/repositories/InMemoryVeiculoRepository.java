@@ -38,21 +38,23 @@ public class InMemoryVeiculoRepository
 
     private boolean matchesCor(Veiculo veiculo, IVeiculoFilter filter) {
         return (
-            filter.getCor() != null &&
+            filter.getCor() == null ||
             FilterUtils.compare(veiculo.getCor(), filter.getCor())
         );
     }
 
     private boolean matchesPlaca(Veiculo veiculo, IVeiculoFilter filter) {
         return (
-            filter.getPlaca() != null &&
+            filter.getPlaca() == null ||
+            veiculo.getEmplacamento() != null &&
             FilterUtils.compare(veiculo.getEmplacamento().getPlaca(), filter.getPlaca())
         );
     }
 
     private boolean matchesTipo(Veiculo veiculo, IVeiculoFilter filter) {
         return (
-            filter.getTipo() != null &&
+            filter.getTipo() == null ||
+            veiculo.getTipoVeiculo() != null &&
             FilterUtils.compare(veiculo.getTipoVeiculo().getDescription(), filter.getTipo().getDescription())
         );
     }
@@ -60,8 +62,8 @@ public class InMemoryVeiculoRepository
     private boolean matchesFilter(Veiculo veiculo, IVeiculoFilter filter) {
 
         return (
-            matchesCor(veiculo, filter) ||
-            matchesPlaca(veiculo, filter) ||
+            matchesCor(veiculo, filter) &&
+            matchesPlaca(veiculo, filter) &&
             matchesTipo(veiculo, filter)
         );
     }
