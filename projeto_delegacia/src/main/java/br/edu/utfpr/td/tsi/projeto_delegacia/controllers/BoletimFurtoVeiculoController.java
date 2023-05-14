@@ -18,13 +18,13 @@ import org.springframework.web.bind.annotation.RestController;
 
 import br.edu.utfpr.td.tsi.projeto_delegacia.dtos.BoletimFurtoVeiculoDTO;
 import br.edu.utfpr.td.tsi.projeto_delegacia.dtos.BoletimFurtoVeiculoReadDTO;
+import br.edu.utfpr.td.tsi.projeto_delegacia.filters.BoletimFilterImpl;
+import br.edu.utfpr.td.tsi.projeto_delegacia.filters.IBoletimFilter;
 import br.edu.utfpr.td.tsi.projeto_delegacia.models.BoletimFurtoVeiculo;
 import br.edu.utfpr.td.tsi.projeto_delegacia.models.PeriodoOcorrencia;
 import br.edu.utfpr.td.tsi.projeto_delegacia.models.Veiculo;
 import br.edu.utfpr.td.tsi.projeto_delegacia.services.IBoletimFurtoVeiculoService;
 import br.edu.utfpr.td.tsi.projeto_delegacia.services.IVeiculoService;
-import br.edu.utfpr.td.tsi.projeto_delegacia.utils.BoletimFilterImpl;
-import br.edu.utfpr.td.tsi.projeto_delegacia.utils.IBoletimFilter;
 
 @RestController
 @RequestMapping("/boletins")

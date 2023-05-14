@@ -1,4 +1,4 @@
-package br.edu.utfpr.td.tsi.projeto_delegacia.utils;
+package br.edu.utfpr.td.tsi.projeto_delegacia.validators;
 
 public interface IValidator<T> {
     

@@ -1,4 +1,4 @@
-package br.edu.utfpr.td.tsi.projeto_delegacia.utils;
+package br.edu.utfpr.td.tsi.projeto_delegacia.validators;
 
 import java.time.LocalDate;
 
@@ -14,6 +14,7 @@ import br.edu.utfpr.td.tsi.projeto_delegacia.exceptions.ParteException;
 import br.edu.utfpr.td.tsi.projeto_delegacia.exceptions.ParteTelefoneException;
 import br.edu.utfpr.td.tsi.projeto_delegacia.exceptions.PeriodoOcorrenciaException;
 import br.edu.utfpr.td.tsi.projeto_delegacia.models.BoletimFurtoVeiculo;
+import br.edu.utfpr.td.tsi.projeto_delegacia.utils.ValidationUtils;
 
 @Component
 public class BoletimValidator implements IValidator<BoletimFurtoVeiculo> {
