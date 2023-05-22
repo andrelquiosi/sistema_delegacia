@@ -13,7 +13,7 @@
 
 	<groupId>br.edu.utfpr.td.tsi</groupId>
 	<artifactId>projeto_delegacia</artifactId>
-	<version>0.0.1-SNAPSHOT</version>
+	<version>1.0.0</version>
 	<name>Projeto Delegacia</name>
 	<description>Avaliação 1 - Sistema Boletim de ocorrência para funrto de veículos.</description>
 

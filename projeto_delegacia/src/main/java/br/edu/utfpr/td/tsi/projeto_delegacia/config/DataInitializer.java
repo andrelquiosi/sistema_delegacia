@@ -1,5 +1,7 @@
 package br.edu.utfpr.td.tsi.projeto_delegacia.config;
 
+import java.io.BufferedInputStream;
+import java.io.FileInputStream;
 import java.io.InputStream;
 import java.util.List;
 
@@ -30,8 +32,9 @@ public class DataInitializer implements ApplicationRunner {
 
     @Override
     public void run(ApplicationArguments args) throws Exception {
-        ClassLoader classLoader = getClass().getClassLoader();
-        InputStream csvFileStream = classLoader.getResourceAsStream("furtos.csv");
+
+        FileInputStream file = new FileInputStream("furtos.csv");
+        InputStream csvFileStream = new BufferedInputStream(file);
         
         List<BoletimFurtoVeiculoDTO> boletinsDTO = boletimCSVConverter.convertFileStream(csvFileStream);
 
